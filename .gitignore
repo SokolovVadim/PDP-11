@@ -16,10 +16,6 @@
 *.dylib
 *.dll
 
-# Fortran module files
-*.mod
-*.smod
-
 # Compiled Static libraries
 *.lai
 *.la
@@ -30,3 +26,16 @@
 *.exe
 *.out
 *.app
+*.elf
+
+# IDE configurations
+.vscode/
+.idea/
+
+# OS X directories configurations
+.DS_Store
+
+# Build files
+*build*/
+*bin*/
+

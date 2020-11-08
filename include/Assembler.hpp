@@ -9,8 +9,9 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <cassert>
 
-typedef int8_t mem_type;
+typedef int8_t mem_t;
 
 enum MEMORY{
     PAGE_SIZE = 2 << 10,
@@ -23,12 +24,19 @@ namespace pdp{
     public:
         Assembler();
         ~Assembler();
-        Assembler(const std::string& filename);
-        void ReadFile(const std::string& filename);
-
+        // Assembler(const std::string& filename);
+        ssize_t GetLengthOfFile(std::ifstream& file);
+        ssize_t ReadFile();
+        void ParseRom();
+        void FillPtrArr();
+        void Init(const std::string& filename);
+        void PrintPtrArr();
     private:
-        mem_type*   rom_;
+        mem_t*      rom_;
+        mem_t**     ptr_arr_;
         std::string rom_file_name_;
+        ssize_t     code_length_;
+        ssize_t     line_num_;
     };
 }
 
